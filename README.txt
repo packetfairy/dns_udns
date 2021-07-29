@@ -1,8 +1,4 @@
-So, here's what I do to make this work.
-
-First, make sure you have python3 and python virtualenv set up.
-
-From the base of this directory, run the following commands:
+certbot DNS Authenticator Plugin for UltraDNS
 
 # set up and use python virtual environment
 virtualenv venv
