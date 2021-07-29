@@ -13,8 +13,10 @@ pip install -e plugins
 
 
 Next, edit plugins/dns_udns.py, defining your UDNS portal username
-and password on lines 10 and 11.
-
+and password on lines 10 and 11. Alternatively, you could define
+username and password in a credentials file and then load that file,
+but I just didn't care enough, and wanted it to be able to operate
+without manual intervention.
 
 Now you can invoke certbot using `-a dns_udns`
 
