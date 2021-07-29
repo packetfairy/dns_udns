@@ -7,7 +7,6 @@ cd venv
 
 # download and install dependencies into local virtual environment
 pip install -r requirements.txt
-pip install -e plugins
 
 # enable plugin
 pip install -e plugins
