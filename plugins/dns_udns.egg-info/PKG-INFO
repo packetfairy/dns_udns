@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: dns-udns
+Version: 0.0.1
+Summary: use UltraDNS api to make changes to TXT records for certbot
+Home-page: none
+Author: Rob Cascella
+Author-email: udns@packetfairy.com
+License: absolutely no license whatsoever
+Description: certbot DNS authentication plugin for interacting with the UltraDNS API
+Platform: any

@@ -1,0 +1,7 @@
+setup.py
+dns_udns.egg-info/PKG-INFO
+dns_udns.egg-info/SOURCES.txt
+dns_udns.egg-info/dependency_links.txt
+dns_udns.egg-info/entry_points.txt
+dns_udns.egg-info/requires.txt
+dns_udns.egg-info/top_level.txt
