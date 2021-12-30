@@ -17,7 +17,6 @@ udns_endpoint = 'restapi.ultradns.com'
 class Authenticator(dns_common.DNSAuthenticator):
     """DNS Authenticator for UltraDNS"""
     description = 'make changes to TXT records in domains hosted with UDNS'
-    ttl = 60
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -39,10 +38,10 @@ class Authenticator(dns_common.DNSAuthenticator):
         self.credentials = None
 
     def _perform(self, domain, validation_name, validation):
-        self._udnsclient().create(domain, "TXT", validation_name, 300, validation)
+        self._udnsclient().create(domain=domain, record_type="TXT", record=validation_name, ttl=300, value=validation)
 
     def _cleanup(self, domain, validation_name, validation):
-        self._udnsclient().delete(domain, "TXT", validation_name)
+        self._udnsclient().delete(domain=domain, record_type="TXT", record=validation_name)
 
     def _udnsclient(self):
         return UDNSClient(username, password)
@@ -53,7 +52,7 @@ class UDNSClient:
         self.c = ultra_rest_client.RestApiClient(username, password, 'True' == use_http, udns_endpoint)
 
     def create(self, domain, record_type, record, ttl, value):
-        self.c.create_rrset(domain, record_type, record, ttl, value)
+        self.c.create_rrset('.'.join(domain.split('.')[-2:]), record_type, record, ttl, value)
 
     def delete(self, domain, record_type, record):
-        self.c.delete_rrset(domain, record_type, record)
+        self.c.delete_rrset('.'.join(domain.split('.')[-2:]), record_type, record)
